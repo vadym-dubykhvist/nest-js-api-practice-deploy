@@ -1,6 +1,5 @@
 image:
-  tag: local
-  pullPolicy: Never
+  tag: v0.0.0
 
 replicaCount: 3
 

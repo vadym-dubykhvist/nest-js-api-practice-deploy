@@ -10,7 +10,7 @@ spec:
 
   sources:
     - repoURL: https://github.com/vadym-dubykhvist/nest-js-api-practice
-      targetRevision: deploy/implement_k8s
+      targetRevision: main
       path: chart
       helm:
         valueFiles:
