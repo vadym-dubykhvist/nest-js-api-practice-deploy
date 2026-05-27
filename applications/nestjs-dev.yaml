@@ -1,0 +1,29 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: nestjs-dev
+  namespace: argocd
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  project: default
+
+  sources:
+    - repoURL: https://github.com/vadym-dubykhvist/nest-js-api-practice
+      targetRevision: deploy/implement_k8s
+      path: chart
+      helm:
+        valueFiles:
+          - $values/environments/dev/values.yaml
+
+    - repoURL: https://github.com/vadym-dubykhvist/nest-js-api-practice-deploy
+      targetRevision: main
+      ref: values
+
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: nestjs-app
+
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
