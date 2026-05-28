@@ -5,3 +5,5 @@ hpa:
   enabled: false
 ingress:
   host: nestjs.localhost
+serviceMonitor:
+  enabled: true
