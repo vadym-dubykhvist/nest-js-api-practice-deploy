@@ -7,3 +7,5 @@ ingress:
   host: nestjs.localhost
 serviceMonitor:
   enabled: true
+prometheusRule:
+  enabled: true
